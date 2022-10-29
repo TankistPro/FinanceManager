@@ -3,7 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinanceManager", "FinanceManager\FinanceManager.csproj", "{B8C9A184-88B3-4307-83C5-1AF8A85EE870}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinanceManager", "FinanceManager\FinanceManager.csproj", "{B8C9A184-88B3-4307-83C5-1AF8A85EE870}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinanceManager.Domain", "FinanceManager.Domain\FinanceManager.Domain.csproj", "{DE3AC004-21F9-49D6-99D4-F3659ADA48C5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{76C09A72-A89A-4D1B-BC6C-43C7C90C2CA0}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinanceManager.Infrastructure", "FinanceManager.Infrastructure\FinanceManager.Infrastructure.csproj", "{D4F4773E-6F29-4C32-939E-43567273A0A2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +24,14 @@ Global
 		{B8C9A184-88B3-4307-83C5-1AF8A85EE870}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8C9A184-88B3-4307-83C5-1AF8A85EE870}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8C9A184-88B3-4307-83C5-1AF8A85EE870}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE3AC004-21F9-49D6-99D4-F3659ADA48C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE3AC004-21F9-49D6-99D4-F3659ADA48C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE3AC004-21F9-49D6-99D4-F3659ADA48C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE3AC004-21F9-49D6-99D4-F3659ADA48C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4F4773E-6F29-4C32-939E-43567273A0A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4F4773E-6F29-4C32-939E-43567273A0A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4F4773E-6F29-4C32-939E-43567273A0A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4F4773E-6F29-4C32-939E-43567273A0A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
