@@ -23,9 +23,6 @@ namespace FinanceManager
     /// </summary>
     public partial class MainWindow : Window
     {
-        // private Binding< _user;
-        // private readonly BaseRepository<User> _userRepository;
-
         // Тест
         private int UserId = 1;
         
@@ -33,8 +30,6 @@ namespace FinanceManager
         {
             InitializeComponent();
             DataContext = new UserModel(UserId);
-
-            // _userRepository = new BaseRepository<User>();
         }
 
         private void AddOperation(object sender, RoutedEventArgs e)
