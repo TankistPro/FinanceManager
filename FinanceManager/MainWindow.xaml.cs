@@ -24,5 +24,11 @@ namespace FinanceManager
         {
             InitializeComponent();
         }
+
+        private void AddOperation(object sender, RoutedEventArgs e)
+        {
+            AddOperationWindow addOperationWindow = new AddOperationWindow();
+            addOperationWindow.Show();
+        }
     }
 }
