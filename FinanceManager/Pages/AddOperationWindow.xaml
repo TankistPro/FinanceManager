@@ -20,7 +20,7 @@
             <Label Content="Комментарий к опреации" HorizontalAlignment="Stretch" FontWeight="Bold" VerticalAlignment="Top" FontSize="12px" Margin="0, 10, 0, 0"/>
             <TextBox x:Name="operationComment" Height="60" TextWrapping="Wrap" AcceptsReturn="True" FontSize="14px" Padding="5, 10, 5, 10" Margin="0, 0, 0, 10" />
 
-            <Button x:Name="Add" Content="Добавть" HorizontalAlignment="Stretch" Grid.Row="1" Height="35px" VerticalAlignment="Bottom" Margin="0, 0, 0, 10"/>
+            <Button x:Name="Add" Click="CreateOperation" Content="Добавть" HorizontalAlignment="Stretch" Grid.Row="1" Height="35px" VerticalAlignment="Bottom" Margin="0, 0, 0, 10"/>
             <Button x:Name="Cancel" Content="Назад" HorizontalAlignment="Stretch" Grid.Row="1" Height="35px" VerticalAlignment="Bottom"/>
         </StackPanel>
     </Grid>

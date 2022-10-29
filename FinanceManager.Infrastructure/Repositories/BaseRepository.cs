@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace FinanceManager.Infrastructure.Repositories
 {
-    internal class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class
+    public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class
     {
         private readonly DataBaseContext _context;
 
-        public BaseRepository(DataBaseContext dbContext)
+        public BaseRepository()
         {
-            _context = dbContext;
+            _context = new DataBaseContext();
         }
 
         async public Task<bool> AddAsync(TEntity entity)
@@ -21,7 +21,7 @@ namespace FinanceManager.Infrastructure.Repositories
             try
             {
                 await _context.Set<TEntity>().AddAsync(entity);
-
+                await _context.SaveChangesAsync();
                 return true;
             } 
             catch (Exception ex)
@@ -35,7 +35,7 @@ namespace FinanceManager.Infrastructure.Repositories
             try
             {
                 await _context.Set<TEntity>().AddRangeAsync(entities);
-
+                await _context.SaveChangesAsync();
                 return true;
             }
             catch (Exception ex)
@@ -44,11 +44,11 @@ namespace FinanceManager.Infrastructure.Repositories
             }
         }
 
-        async public Task<TEntity> GetByIdAsync(int id)
+        public TEntity GetById(int id)
         {
             try
             {
-                return await _context.Set<TEntity>().FindAsync(id);
+                return _context.Set<TEntity>().Find(id);
             }
             catch (Exception ex)
             {
@@ -61,6 +61,7 @@ namespace FinanceManager.Infrastructure.Repositories
             try
             {
                 _context.Set<TEntity>().Remove(entity);
+                _context.SaveChanges();
 
                 return true;
             }
@@ -75,7 +76,7 @@ namespace FinanceManager.Infrastructure.Repositories
             try
             {
                 _context.Set<TEntity>().RemoveRange(entities);
-
+                _context.SaveChanges();
                 return true;
             }
             catch (Exception ex)

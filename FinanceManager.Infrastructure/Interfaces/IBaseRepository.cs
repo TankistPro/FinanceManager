@@ -11,6 +11,6 @@ namespace FinanceManager.Infrastructure.Interfaces
         Task<bool> AddRageAsync(List<T> entities);
         bool Remove(T entity);
         bool RemoveRange(List<T> entities);
-        Task<T> GetByIdAsync(int id);
+        T GetById(int id);
     }
 }
