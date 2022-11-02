@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using FinanceManager.Infrastructure.Repositories;
 using FinanceManager.Domain;
+using FinanceManager.Models;
 
 namespace FinanceManager
 {
@@ -20,12 +21,13 @@ namespace FinanceManager
     public partial class AddOperationWindow : Window
     {
         private readonly BaseRepository<OperationHistory> _historyRepository;
-        public string ViewModel { get; set; }
-
-        public AddOperationWindow()
+        private MainViewModel _mainViewModel;
+        public AddOperationWindow(MainViewModel mainViewModel)
         {
             InitializeComponent();
+
             _historyRepository = new BaseRepository<OperationHistory>();
+            _mainViewModel = mainViewModel;
         }
 
         async public void CreateOperation(object sender, RoutedEventArgs e)
@@ -45,6 +47,9 @@ namespace FinanceManager
 
             if (response)
             {
+                var total = Convert.ToInt32(_mainViewModel.Balance) + value;
+                _mainViewModel.Balance = total.ToString();
+
                 this.Close();
             }
 
