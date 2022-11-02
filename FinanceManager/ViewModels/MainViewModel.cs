@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-
+using AutoMapper;
 using FinanceManager.Commands;
 using FinanceManager.Domain;
 using FinanceManager.Infrastructure.Repositories;
@@ -9,15 +9,18 @@ namespace FinanceManager.Models
 {
     public class MainViewModel : INotifyPropertyChanged
     {
-        private BaseRepository<User> _userRepository;
-        public MainViewModel(int userId = 1)
+        private readonly IMapper _mapper;
+        private readonly BaseRepository<User> _userRepository;
+        public MainViewModel(IMapper mapper, int userId = 1)
         {
+            _mapper = mapper;
             _userRepository = new BaseRepository<User>();
+
             GetUserData(userId);
         }
 
-        private User _user;
-        public User User
+        private UserModel _user;
+        public UserModel User
         {
             get { return _user; }
             set
@@ -51,7 +54,8 @@ namespace FinanceManager.Models
 
         private void GetUserData(int userId)
         {
-            _user = _userRepository.GetById(userId);
+            var user = _userRepository.GetById(userId);
+            _user = _mapper.Map<UserModel>(user);
         }
 
         #region  PropertyChanged

@@ -2,3 +2,6 @@
 
 # CS8632: Аннотацию для ссылочных типов, допускающих значения NULL, следует использовать в коде только в контексте аннотаций "#nullable".
 dotnet_diagnostic.CS8632.severity = warning
+
+# IDE0044: Добавить модификатор только для чтения
+dotnet_diagnostic.IDE0044.severity = none

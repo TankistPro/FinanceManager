@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using AutoMapper;
 using FinanceManager.Models;
 
 namespace FinanceManager
@@ -9,11 +10,11 @@ namespace FinanceManager
     public partial class MainWindow : Window
     {
         MainViewModel mainViewModel;
-        public MainWindow()
+        public MainWindow(IMapper mapper)
         {
             InitializeComponent();
 
-            mainViewModel = new MainViewModel();
+            mainViewModel = new MainViewModel(mapper);
             DataContext = mainViewModel;
         }
 
