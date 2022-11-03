@@ -7,14 +7,8 @@ using System.Threading.Tasks;
 
 namespace FinanceManager.Infrastructure.Repositories
 {
-    public class OperationHistoryRepository : IOperationHistoryRepository
+    public class OperationHistoryRepository : BaseRepository<OperationHistory>, IOperationHistoryRepository
     {
-        private readonly BaseRepository<OperationHistory> _baseRepository;
-        public OperationHistoryRepository()
-        {
-            _baseRepository = new BaseRepository<OperationHistory>();
-        }
-
         /// <summary>
         /// Создание записи о денежной операции
         /// </summary>
@@ -26,7 +20,7 @@ namespace FinanceManager.Infrastructure.Repositories
 
             try
             {
-                await _baseRepository.AddAsync(entity);
+                await this.AddAsync(entity);
 
                 return true;
             } 

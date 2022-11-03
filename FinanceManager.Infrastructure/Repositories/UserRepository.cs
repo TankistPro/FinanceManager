@@ -21,7 +21,7 @@ namespace FinanceManager.Infrastructure.Repositories
         {
             try
             {
-                var user = await _context.Set<User>().FindAsync(userId);
+                var user = this.GetById(userId);
 
                 if (user == null) return false;
 
