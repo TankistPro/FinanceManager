@@ -16,7 +16,7 @@ namespace FinanceManager.Infrastructure.Repositories
         }
 
         /// <summary>
-        /// Создание записи об денежной операции
+        /// Создание записи о денежной операции
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
