@@ -12,6 +12,7 @@ using System.Windows.Shapes;
 using FinanceManager.Infrastructure.Repositories;
 using FinanceManager.Domain;
 using FinanceManager.Models;
+using FinanceManager.Infrastructure.Interfaces;
 
 namespace FinanceManager
 {
@@ -20,13 +21,19 @@ namespace FinanceManager
     /// </summary>
     public partial class AddOperationWindow : Window
     {
-        private readonly BaseRepository<OperationHistory> _historyRepository;
+        private readonly IOperationHistoryRepository _operationHistoryRepository;
+        private readonly IUserRepository _userRepository;
+
         private MainViewModel _mainViewModel;
-        public AddOperationWindow(MainViewModel mainViewModel)
+        public AddOperationWindow(MainViewModel mainViewModel, 
+            IUserRepository userRepository, 
+            IOperationHistoryRepository operationHistoryRepository)
         {
             InitializeComponent();
 
-            _historyRepository = new BaseRepository<OperationHistory>();
+            _operationHistoryRepository = operationHistoryRepository;
+            _userRepository = userRepository;
+
             _mainViewModel = mainViewModel;
         }
 
@@ -43,17 +50,16 @@ namespace FinanceManager
                 UserId = 1
             };
 
-            bool response = await _historyRepository.AddAsync(history);
+            bool userReposnse = await this._userRepository.UpdateBalance(history.Value, history.UserId);
+            bool historyResponse = await this._operationHistoryRepository.CreateOperationHistory(history);
 
-            if (response)
+            if (userReposnse && historyResponse)
             {
-                var total = Convert.ToInt32(_mainViewModel.Balance) + value;
+                var total = Convert.ToInt32(_mainViewModel.Balance) + history.Value;
                 _mainViewModel.Balance = total.ToString();
 
                 this.Close();
             }
-
-            Console.WriteLine(response);
         }
     }
 }

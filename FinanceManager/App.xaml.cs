@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using FinanceManager.Infrastructure.Interfaces;
+using FinanceManager.Infrastructure.Repositories;
 using FinanceManager.Mapping;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -29,6 +31,9 @@ namespace FinanceManager
         {
             services.AddSingleton<MainWindow>();
             services.AddAutoMapper(typeof(AppMapping));
+
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IOperationHistoryRepository, OperationHistoryRepository>();
         }
 
         protected override async void OnStartup(StartupEventArgs e)

@@ -9,7 +9,7 @@ namespace FinanceManager.Infrastructure.Repositories
 {
     public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class
     {
-        private readonly DataBaseContext _context;
+        private protected readonly DataBaseContext _context;
 
         public BaseRepository()
         {

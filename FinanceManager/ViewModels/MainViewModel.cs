@@ -40,18 +40,6 @@ namespace FinanceManager.Models
             }
         }
 
-        /*private RelayCommand _updateBalance;
-        public RelayCommand UpdateBalance
-        {
-            get
-            {
-                return _updateBalance = new RelayCommand(obj =>
-                {
-                    Balance = "100";
-                });
-            }
-        }*/
-
         private void GetUserData(int userId)
         {
             var user = _userRepository.GetById(userId);
