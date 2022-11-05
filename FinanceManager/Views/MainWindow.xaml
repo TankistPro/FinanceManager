@@ -34,7 +34,7 @@
         </StackPanel>
 
         <Button Grid.Row="2" Content="Добавить операцию" Grid.ColumnSpan="1" Height="50" Margin="5,0,5,0" Click="AddOperation" />
-        <Button Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1" Command="{Binding UpdateBalance}" Content="История операция" Height="50" VerticalAlignment="Center" Margin="5,0,5,0"/>
+        <Button Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1" Click="GoToHistory" Content="История операция" Height="50" VerticalAlignment="Center" Margin="5,0,5,0"/>
         <Button Grid.Row="4" Content="Войти" Grid.ColumnSpan="1" Height="50" Margin="5,0,5,0"/>
     </Grid>
 

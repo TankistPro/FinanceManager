@@ -1,0 +1,37 @@
+﻿<Window x:Class="FinanceManager.Views.OperationHistoryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FinanceManager.Views"
+        mc:Ignorable="d"
+        Title="OperationHistoryWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="4*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="Ваша история:" FontSize="20px" FontWeight="Bold" VerticalAlignment="Center"></TextBlock>
+        <ListBox Grid.Row="1" Grid.Column="1">
+            <ListBoxItem Background="LightGray" FontSize="18">
+                <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center">
+
+                    <TextBlock Foreground="Green">Зачислено:</TextBlock>
+                    <TextBlock Margin="10 0 0 0">1000р</TextBlock>
+
+                </WrapPanel>
+            </ListBoxItem>
+        </ListBox>
+
+        <StackPanel Grid.Row="2" Grid.Column="1" Margin="0 10 0 0">
+            <Button Content="Назад" Height="30" Click="GoBack"></Button>
+        </StackPanel>
+    </Grid>
+</Window>

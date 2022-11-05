@@ -4,19 +4,15 @@ using AutoMapper;
 using FinanceManager.Commands;
 using FinanceManager.Domain;
 using FinanceManager.Infrastructure.Repositories;
+using FinanceManager.Services;
 
 namespace FinanceManager.Models
 {
     public class MainViewModel : INotifyPropertyChanged
     {
-        private readonly IMapper _mapper;
-        private readonly BaseRepository<User> _userRepository;
         public MainViewModel(IMapper mapper, int userId = 1)
         {
-            _mapper = mapper;
-            _userRepository = new BaseRepository<User>();
-
-            GetUserData(userId);
+            User = new UserService(mapper).GetUserData(userId);
         }
 
         private UserModel _user;
@@ -38,12 +34,6 @@ namespace FinanceManager.Models
                 _user.Balance = value;
                 OnPropertyChanged();
             }
-        }
-
-        private void GetUserData(int userId)
-        {
-            var user = _userRepository.GetById(userId);
-            _user = _mapper.Map<UserModel>(user);
         }
 
         #region  PropertyChanged
